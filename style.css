@@ -1,0 +1,251 @@
+@font-face {
+    font-family: "DM Sans";
+    src: url("fonts/DM_Sans/DMSans-VariableFont_opsz,wght.ttf") format("truetype");
+    font-weight: 100 1000;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "DM Sans";
+    src: url("fonts/DM_Sans/DMSans-Italic-VariableFont_opsz,wght.ttf") format("truetype");
+    font-weight: 100 1000;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Instrument Serif";
+    src: url("fonts/Instrument_Serif/InstrumentSerif-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Instrument Serif";
+    src: url("fonts/Instrument_Serif/InstrumentSerif-Italic.ttf") format("truetype");
+    font-weight: 400;
+    font-style: italic;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --ink: #18231d;
+    --paper: #f1efe7;
+    --paper-deep: #e4e0d4;
+    --accent: #eb6542;
+}
+
+html {
+    scroll-behavior: smooth;
+    line-height: 1.5;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    color: var(--ink);
+    background: radial-gradient(circle at 82% 12%, #eb654214, transparent 22rem), var(--paper);
+    min-width: 320px;
+    min-height: 100vh;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+h1,
+h2 {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+main {
+    width: min(100%, 1600px);
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.hero {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    min-height: 31rem;
+    padding: clamp(4rem, 9vw, 8rem) clamp(1.25rem, 4vw, 4.5rem);
+}
+
+.eyebrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+}
+
+.eyebrow span {
+    width: 2rem;
+    height: 1px;
+    background: var(--accent);
+}
+
+h1 {
+    max-width: 13ch;
+    font-family: "Instrument Serif", serif;
+    font-size: clamp(4.5rem, 10vw, 9.5rem);
+    font-weight: 400;
+    line-height: 0.78;
+    letter-spacing: -0.05em;
+}
+
+h1 em {
+    color: var(--accent);
+    font-weight: inherit;
+}
+
+.continents-section {
+    padding: 0 clamp(1.25rem, 4vw, 4.5rem) 4rem;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.2rem 0;
+    border-top: 1px solid #18231d33;
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+}
+
+.section-heading span {
+    color: #18231d85;
+}
+
+.continent-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 0.6rem;
+}
+
+.continent-card {
+    display: block;
+    color: var(--ink);
+}
+
+.card-image {
+    height: clamp(17rem, 28vw, 25rem);
+    background: var(--paper-deep);
+    border-radius: 0.4rem;
+    overflow: hidden;
+}
+
+.continent-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.78);
+    transition: filter 0.6s, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.card-content {
+    padding: 0.9rem 0.15rem 0;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.4rem;
+    color: #18231d8c;
+    font-size: 0.58rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+}
+
+h2 {
+    font-family: "Instrument Serif", serif;
+    font-size: clamp(1.8rem, 2.5vw, 2.7rem);
+    font-weight: 400;
+    line-height: 1;
+}
+
+.continent-card:hover img,
+.continent-card:focus-visible img {
+    filter: saturate(1.05);
+    transform: scale(1.07);
+}
+
+.continent-card:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 clamp(1.25rem, 4vw, 4.5rem);
+    padding: 1.5rem 0 2.5rem;
+    border-top: 1px solid #18231d2e;
+    color: #18231d8c;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+
+@media (max-width: 1050px) {
+    .continent-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card-image {
+        height: 24rem;
+    }
+}
+
+@media (max-width: 720px) {
+    .hero {
+        min-height: auto;
+        padding-block: 5rem;
+    }
+
+    .continent-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card-image {
+        height: 21rem;
+    }
+}
+
+@media (max-width: 460px) {
+    h1 {
+        font-size: 3.9rem;
+    }
+
+    .continent-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-image {
+        height: 28rem;
+    }
+
+    footer {
+        gap: 2rem;
+    }
+}
+
